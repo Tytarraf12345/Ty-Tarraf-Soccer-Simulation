@@ -18,8 +18,8 @@ public abstract class Creature {
     protected int y;
     protected int vx;
     protected int vy;
-    //private int height;
-    //private int width;
+    private int height;
+    private int width;
     //(int) (Math.random()* 800) ;
    // (int) (Math.random()* 660)+ 100;
     //Constructor

@@ -36,7 +36,7 @@ public class Ecosystem extends JPanel {
     private  blackc blackc;
     private  goaliebox1 goaliebox1;
     private  goaliebox2 goaliebox2;
-    
+    private  ball ball;
     
     
  
@@ -60,7 +60,8 @@ public class Ecosystem extends JPanel {
         creatures1.add(new redplayer ());
         }
         
-        creatures.add(new ball ());
+       
+        ball = new ball ();
         net1 = new net1();
         net2 = new net2();
         goalie1 = new goalie1();
@@ -98,11 +99,10 @@ public class Ecosystem extends JPanel {
         blackc.draw(g);
         goaliebox1.draw(g);
         goaliebox2.draw(g);
+        ball.draw(g);
      
        // blob.draw(g);
-       for (Creature creature : creatures){
-           creature.draw(g);
-       }
+       
        for (Creature1 creature1 : creatures1){
            creature1.draw(g);
        }
@@ -117,18 +117,18 @@ public class Ecosystem extends JPanel {
         @Override
         public void run() {
             
-               for (Creature creature : creatures){
-           creature.update();
+              // for (Creature creature : creatures){
+           ball.update();
                //wallCollisions(creature);
-               characterVsCharacter((ball)creature,wall1);
-               characterVsCharacter((ball)creature,wall2);
-               characterVsCharacter((ball)creature,wall3);
-               characterVsCharacter((ball)creature,wall4);
-               characterVsCharacter((ball)creature,wall5);
-               characterVsCharacter((ball)creature,wall6);
-               characterVsCharacter((ball)creature,net1);
-               characterVsCharacter((ball)creature,net2);
-       }
+               characterVsCharacter((ball)ball,wall1);
+               characterVsCharacter((ball)ball,wall2);
+               characterVsCharacter((ball)ball,wall3);
+               characterVsCharacter((ball)ball,wall4);
+               characterVsCharacter((ball)ball,wall5);
+               characterVsCharacter((ball)ball,wall6);
+               characterVsCharacter((ball)ball,net1);
+               characterVsCharacter((ball)ball,net2);
+      // }
                
                for (Creature1 creature1 : creatures1){
            creature1.update();
@@ -141,7 +141,7 @@ public class Ecosystem extends JPanel {
                characterVsCharacter((redplayer)creature1,wall4);
                characterVsCharacter((redplayer)creature1,wall5);
                characterVsCharacter((redplayer)creature1,wall6);
-               characterVsCharacter((redplayer)creature1,creature);
+               characterVsCharacter(ball,(redplayer)creature1);
        }
                
                for (Creature2 creature2 : creatures2){
@@ -155,7 +155,7 @@ public class Ecosystem extends JPanel {
                characterVsCharacter((BluePlayer)creature2,wall4);
                characterVsCharacter((BluePlayer)creature2,wall5);
                characterVsCharacter((BluePlayer)creature2,wall6);
-               characterVsCharacter((BluePlayer)creature2,creature);
+               characterVsCharacter(ball,(BluePlayer)creature2);
        }
                     
             repaint();
@@ -395,8 +395,7 @@ public class Ecosystem extends JPanel {
         && c1.getY() < c2.getY() + c2.getHeight() ) {
         c1.setVy(-c1.getVy());
         c1.setVx(-c1.getVx());
-        c2.setVy(-c2.getVy());
-        c2.setVx(-c2.getVx());
+        
         c1.move();
         }
     } 
@@ -407,8 +406,7 @@ public class Ecosystem extends JPanel {
         && c1.getY() < c2.getY() + c2.getHeight() ) {
         c1.setVy(-c1.getVy());
         c1.setVx(-c1.getVx());
-        c2.setVy(-c2.getVy());
-        c2.setVx(-c2.getVx());
+        
         c1.move();
         }
     }
