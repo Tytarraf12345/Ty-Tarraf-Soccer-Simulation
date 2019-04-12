@@ -395,7 +395,8 @@ public class Ecosystem extends JPanel {
         && c1.getY() < c2.getY() + c2.getHeight() ) {
         c1.setVy(-c1.getVy());
         c1.setVx(-c1.getVx());
-        
+        c2.setVy(-c2.getVy());
+        //c2.setVx(-c2.getVx());
         c1.move();
         }
     } 
@@ -406,6 +407,8 @@ public class Ecosystem extends JPanel {
         && c1.getY() < c2.getY() + c2.getHeight() ) {
         c1.setVy(-c1.getVy());
         c1.setVx(-c1.getVx());
+        c2.setVy(-c2.getVy());
+        //c2.setVx(-c2.getVx());
         
         c1.move();
         }
