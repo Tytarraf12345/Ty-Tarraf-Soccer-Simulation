@@ -30,7 +30,7 @@ import javax.swing.ImageIcon;
         }
 
     public redplayer() {
-        this(100);
+        this(85);
     }
 
     public int getSize() {
